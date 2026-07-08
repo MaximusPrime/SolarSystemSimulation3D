@@ -1,0 +1,37 @@
+{
+  "name": "solarsystemsimulation3d",
+  "version": "1.0.0",
+  "description": "Güneş Sistemi Simülasyonu",
+  "main": "main-electron.js",
+  "scripts": {
+    "dev": "vite",
+    "start": "electron .",
+    "build": "vite build",
+    "dist": "npm run build && npx electron-packager . \"SolarSystemSimulation3D\" --platform=win32 --arch=x64 --out=builds/desktop --overwrite --icon=icon.ico",
+    "setup": "npm run build && npx electron-builder --win"
+  },
+  "keywords": [],
+  "author": "Barbaros",
+  "license": "ISC",
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3",
+    "electron-packager": "^17.1.2",
+    "vite": "^5.2.11"
+  },
+  "build": {
+    "appId": "com.barbaros.solarsystemsimulation3d",
+    "productName": "SolarSystemSimulation3D",
+    "win": {
+      "target": "portable",
+      "icon": "icon.ico"
+    },
+    "directories": {
+      "output": "builds/installer"
+    }
+  }
+}
