@@ -3,6 +3,8 @@ import * as THREE from 'three';
 import { initScene } from './core/setup.js';
 import { createPlanetSystem, createDwarfPlanet, createAsteroidBelt, createStarfieldOverlay, createSun } from './world/creators.js';
 import { setupUI } from './ui/interaction.js';
+import { updateLabel } from './utils/helpers.js';
+import { planetInfo } from './data/database.js';
 
 // ==========================================
 // 2. AYARLAR (DURUM YÖNETİMİ)
@@ -59,6 +61,14 @@ const showInfoFn = setupUI(scene, camera, controls, planets, sun, asteroidMesh, 
 // 6.5. DİNAMİK SİMÜLASYON AYARLARINI UYGULA
 // ==========================================
 function applySimulationSettings() {
+    const lang = state.language || 'en';
+
+    if (sun && sun.userData && sun.userData.label) {
+        const sunData = planetInfo["GUNES"];
+        const sunName = sunData && sunData[lang] ? sunData[lang].name : "SUN";
+        updateLabel(sun.userData.label, sunName);
+    }
+
     planets.forEach(p => {
         if (p.mesh && p.mesh.userData) {
             const artisticSize = p.mesh.userData.artisticSize || 1;
@@ -79,10 +89,15 @@ function applySimulationSettings() {
                 p.mesh.userData.clouds.scale.setScalar(1.02);
             }
 
-            // Etiket pozisyonunu boyutla orantılı güncelle
+            // Etiket metnini ve pozisyonunu boyutla veya dile göre güncelle
             if (p.mesh.userData.label) {
                 const currentSize = state.isTrueScale ? trueSize : artisticSize;
                 p.mesh.userData.label.position.y = currentSize + 0.8;
+
+                const planetKey = p.mesh.userData.name;
+                const pData = planetInfo[planetKey];
+                const translatedName = pData && pData[lang] ? pData[lang].name : (planetKey || '');
+                updateLabel(p.mesh.userData.label, translatedName);
             }
 
             // Yörünge mesafesini güncelle

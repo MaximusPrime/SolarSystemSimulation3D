@@ -18,6 +18,7 @@ export function createSun(scene) {
     const label = createLabel("GÜNEŞ");
     label.position.set(0, 6, 0);
     sun.add(label);
+    sun.userData.label = label;
     return sun;
 }
 

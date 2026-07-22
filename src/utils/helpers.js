@@ -27,6 +27,16 @@ export function createLabel(text) {
     s.scale.set(4, 1, 1); return s;
 }
 
+export function updateLabel(sprite, text) {
+    if (!sprite || !sprite.material) return;
+    const c = document.createElement('canvas'); c.width = 256; c.height = 64; const ctx = c.getContext('2d');
+    ctx.font = 'Bold 36px "Segoe UI", sans-serif'; ctx.fillStyle = 'white'; ctx.textAlign = 'center'; ctx.shadowColor = "black"; ctx.shadowBlur = 4;
+    ctx.fillText(text.toUpperCase(), 128, 44);
+    if (sprite.material.map) sprite.material.map.dispose();
+    sprite.material.map = new THREE.CanvasTexture(c);
+    sprite.material.needsUpdate = true;
+}
+
 export function createStarTexture() {
     const c = document.createElement('canvas'); c.width = 64; c.height = 64; const ctx = c.getContext('2d');
     ctx.fillStyle = 'white'; ctx.shadowBlur = 10; ctx.shadowColor = 'white';
