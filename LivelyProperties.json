@@ -1,0 +1,50 @@
+{
+  "isLocked": {
+    "type": "checkbox",
+    "text": "Masaüstü Etkileşimini Kilitle",
+    "value": true,
+    "help": "Masaüstünüzde çalışırken simülasyonun yanlışlıkla dönmesini veya yakınlaşmasını önler."
+  },
+  "showUI": {
+    "type": "checkbox",
+    "text": "Arayüzü Göster",
+    "value": true,
+    "help": "Sol üstteki ayarlar düğmesini ve kontrol panelini tamamen gizleyerek temiz bir uzay manzarası sunar."
+  },
+  "isPaused": {
+    "type": "checkbox",
+    "text": "Zamanı Durdur",
+    "value": false,
+    "help": "Gezegenlerin yörünge hareketlerini dondurur."
+  },
+  "timeScale": {
+    "type": "slider",
+    "text": "Simülasyon Hızı",
+    "min": 0,
+    "max": 3,
+    "value": 1,
+    "step": 0.1,
+    "help": "Gezegenlerin hareket hızını ayarlar."
+  },
+  "isTrueScale": {
+    "type": "checkbox",
+    "text": "Gerçekçi Gezegen Ölçeği",
+    "value": false,
+    "help": "Gezegen boyutlarını ve mesafelerini daha gerçekçi oranlara dönüştürür."
+  },
+  "showOrbits": {
+    "type": "checkbox",
+    "text": "Yörünge Çizgilerini Göster",
+    "value": false,
+    "help": "Gezegenlerin yörünge izlerini mavi/gri çizgiler halinde gösterir."
+  },
+  "panelOpacity": {
+    "type": "slider",
+    "text": "Kontrol Paneli Opaklığı",
+    "min": 10,
+    "max": 100,
+    "value": 85,
+    "step": 5,
+    "help": "Arayüz panelinin şeffaflık yüzdesini ayarlar."
+  }
+}
