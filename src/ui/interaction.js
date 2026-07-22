@@ -148,14 +148,6 @@ export function setupUI(scene, camera, controls, planets, sun, asteroidMesh, sta
                 state.focusedPlanet = null;
                 infoPanel.classList.remove('active');
                 if (state.comparisonMesh) { scene.remove(state.comparisonMesh); state.comparisonMesh = null; }
-                
-                if (uiContainer && uiContainer.classList.contains('active')) {
-                    uiContainer.classList.remove('active');
-                    if (menuToggleBtn) {
-                        menuToggleBtn.classList.remove('active');
-                        menuToggleBtn.innerHTML = '⚙';
-                    }
-                }
             }
             return;
         }
