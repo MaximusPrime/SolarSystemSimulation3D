@@ -4,8 +4,11 @@
   "description": "Güneş Sistemi Simülasyonu",
   "main": "main-electron.js",
   "scripts": {
+    "dev": "vite",
     "start": "electron .",
     "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dist": "npm run build && npx electron-packager . \"SolarSystemSimulation3D\" --platform=win32 --arch=x64 --out=builds/desktop --overwrite --icon=icon.ico",
     "setup": "npm run build && npx electron-builder --win"
   },
@@ -20,6 +23,7 @@
     "electron": "^31.0.0",
     "electron-builder": "^24.13.3",
     "electron-packager": "^17.1.2",
+    "gh-pages": "^6.3.0",
     "vite": "^5.2.11"
   },
   "build": {
